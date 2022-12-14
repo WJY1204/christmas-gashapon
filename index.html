@@ -16,10 +16,12 @@
       Your browser does not support the HTML5 canvas tag.
     </canvas>
     <div class="container" id="reloadBtn">
-      <span class="myspan" id="myspan"></span>
-      <span class="myspan1">程式組卡片 <br />Merry Christmas</span>
-      <button onclick="myFunction()" class="btn">
-        <i class="fa fa-refresh" style="font-size: 80px; color: black"></i>
+      <button
+        onclick="myFunction()"
+        class="btn"
+        style="background-color: white"
+      >
+        <i class="fa fa-refresh" style="font-size: 5em; color: red"></i>
       </button>
     </div>
     <script>
@@ -54,44 +56,25 @@
   }
   .container {
     display: none;
+    width: 100%;
+    background-color: black;
   }
   .container .btn {
     position: absolute;
     /* top: 95%; */
     bottom: 0;
-    left: 50%;
+    /* left: 87%; */
+    right: 0;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: transparent;
     color: black;
-    font-size: 16px;
     padding: 16px 30px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-    /* width: 100%; */
-  }
-  .myspan {
-    position: absolute;
-    top: 86%;
-    left: 50%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 45px;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-  }
-  .myspan1 {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
+    color: black;
   }
   .reload {
     font-family: Lucida Sans Unicode;

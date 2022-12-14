@@ -11,8 +11,8 @@ const _width = (_height * ratioW) / ratioH;
 // const _width = screenWidth;
 // const _height = (_width * ratioH) / ratioW;
 
-const displayBackgroundRatioW = 725;
-const displayBackgroundRatioH = 891;
+const displayBackgroundRatioW = 2000;
+const displayBackgroundRatioH = 1988;
 
 // Position
 let x = (screenWidth - _width) / 2;
@@ -23,7 +23,7 @@ let lastTime = new Date().getTime();
 let currentTime = new Date().getTime();
 // Frame refresh rate.
 const FRAME_PERIOD_IDLE = 240;
-const FRAME_PERIOD = 30;
+const FRAME_PERIOD = 27;
 const FRAME_PERIOD2 = 60;
 
 const gachapons = [

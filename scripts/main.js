@@ -84,36 +84,37 @@ function updateAnimat2() {
 
 function drawRandomImage() {
   let _g = getRndGachapon();
-  span = document.getElementById("myspan");
-  txt = document.createTextNode(_g.name);
-  span.appendChild(txt);
+  // span = document.getElementById("myspan");
+  // txt = document.createTextNode(_g.name);
+  // span.appendChild(txt);
 
-  // let backgroundImage2 = new Image();
-  // backgroundImage2.onload = function () {
-  //   ctx.drawImage(
-  //     backgroundImage2,
-  //     (screenWidth -
-  //       (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH) /
-  //       2,
-  //     0,
-  //     (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH,
-  //     screenHeight
-  //   );
-  // };
-  // backgroundImage2.src = "./assets/background2.png";
+  let backgroundImage2 = new Image();
+  backgroundImage2.onload = function () {
+    ctx.drawImage(
+      backgroundImage2,
+      (screenWidth -
+        (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH) /
+        2,
+      0,
+      (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH,
+      screenHeight
+    );
+  };
+  backgroundImage2.src = "./assets/background2.jpg";
 
   ctx.beginPath();
   ctx.rect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "rgba(255,255,255,1)";
   ctx.fill();
+
   let itemImage = new Image();
   itemImage.onload = function () {
     ctx.drawImage(
       itemImage,
-      (screenWidth - 1080) / 2,
-      (screenHeight - 1080) / 5,
-      1080,
-      1080
+      (screenWidth - screenWidth / 1.1) / 2,
+      (screenHeight - screenWidth / 1.1) / 2,
+      screenWidth / 1.1,
+      screenWidth / 1.1
     );
   };
   itemImage.src = _g.src;

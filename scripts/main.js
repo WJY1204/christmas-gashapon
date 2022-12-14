@@ -103,10 +103,10 @@ function drawRandomImage() {
   nameImage.onload = function () {
     ctx.drawImage(
       nameImage,
-      (screenWidth - screenWidth * 1.4) / 2,
-      (screenHeight - screenWidth / 1.1) / 2 + screenWidth / 1.1 - 150,
-      screenWidth * 1.4,
-      (screenWidth * 1.4 * nameRatioH) / nameRatioW
+      (screenWidth - _nameWidth) / 2,
+      (screenHeight - _gashponHeight) / 2 + _gashponHeight - 230,
+      _nameWidth,
+      _nameHeight
     );
   };
   nameImage.src = _g.name;
@@ -115,10 +115,10 @@ function drawRandomImage() {
   itemImage.onload = function () {
     ctx.drawImage(
       itemImage,
-      (screenWidth - screenWidth / 1.1) / 2,
-      (screenHeight - screenWidth / 1.1) / 2 - 100,
-      screenWidth / 1.1,
-      screenWidth / 1.1
+      (screenWidth - _gashponWidth) / 2,
+      (screenHeight - _gashponHeight) / 2 - 200,
+      _gashponWidth,
+      _gashponHeight
     );
   };
   itemImage.src = _g.src;

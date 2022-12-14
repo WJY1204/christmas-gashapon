@@ -61,7 +61,7 @@ function updateAnimat1() {
 function updateAnimat2() {
   currentTime = new Date().getTime();
   if (currentTime - lastTime < FRAME_PERIOD2) {
-    requestAnimationFrame(updateAnimat2);
+    window.requestAnimationFrame(updateAnimat2);
     return;
   }
 

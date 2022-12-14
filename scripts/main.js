@@ -87,7 +87,6 @@ function drawRandomImage() {
   // span = document.getElementById("myspan");
   // txt = document.createTextNode(_g.name);
   // span.appendChild(txt);
-
   let backgroundImage2 = new Image();
   backgroundImage2.onload = function () {
     ctx.drawImage(backgroundImage2, x, y, _width, _height);

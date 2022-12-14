@@ -31,7 +31,7 @@ let lastTime = new Date().getTime();
 let currentTime = new Date().getTime();
 // Frame refresh rate.
 const FRAME_PERIOD_IDLE = 240;
-const FRAME_PERIOD = 60;
+const FRAME_PERIOD = 30;
 const FRAME_PERIOD2 = 60;
 
 const gachapons = [

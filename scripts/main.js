@@ -1,7 +1,7 @@
 let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-let ctx = canvas.getContext("2d");
 const backgoundImage = new Image();
 backgoundImage.onload = function () {
   ctx.save();

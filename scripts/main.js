@@ -9,7 +9,7 @@ backgoundImage.onload = function () {
   ctx.drawImage(backgoundImage, x, y, _width, _height);
   ctx.restore();
 };
-backgoundImage.src = "./assets/hint/background0.png";
+backgoundImage.src = "./assets/hint/background0.webp";
 
 canvas.addEventListener("click", function () {
   if (isplaying) return;
@@ -92,7 +92,7 @@ function drawRandomImage() {
   backgroundImage2.onload = function () {
     ctx.drawImage(backgroundImage2, x, y, _width, _height);
   };
-  backgroundImage2.src = "./assets/background2.png";
+  backgroundImage2.src = "./assets/background2.webp";
 
   ctx.beginPath();
   ctx.rect(0, 0, canvas.width, canvas.height);

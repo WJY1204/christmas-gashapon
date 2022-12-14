@@ -90,29 +90,33 @@ function drawRandomImage() {
 
   let backgroundImage2 = new Image();
   backgroundImage2.onload = function () {
-    ctx.drawImage(
-      backgroundImage2,
-      (screenWidth -
-        (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH) /
-        2,
-      0,
-      (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH,
-      screenHeight
-    );
+    ctx.drawImage(backgroundImage2, x, y, _width, _height);
   };
-  backgroundImage2.src = "./assets/background2.jpg";
+  backgroundImage2.src = "./assets/background2.png";
 
   ctx.beginPath();
   ctx.rect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(255,255,255,1)";
+  ctx.fillStyle = "rgba(0,0,0,1)";
   ctx.fill();
+
+  let nameImage = new Image();
+  nameImage.onload = function () {
+    ctx.drawImage(
+      nameImage,
+      (screenWidth - screenWidth * 1.4) / 2,
+      (screenHeight - screenWidth / 1.1) / 2 + screenWidth / 1.1 - 150,
+      screenWidth * 1.4,
+      (screenWidth * 1.4 * nameRatioH) / nameRatioW
+    );
+  };
+  nameImage.src = _g.name;
 
   let itemImage = new Image();
   itemImage.onload = function () {
     ctx.drawImage(
       itemImage,
       (screenWidth - screenWidth / 1.1) / 2,
-      (screenHeight - screenWidth / 1.1) / 2,
+      (screenHeight - screenWidth / 1.1) / 2 - 100,
       screenWidth / 1.1,
       screenWidth / 1.1
     );

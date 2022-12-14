@@ -9,7 +9,7 @@ backgoundImage.onload = function () {
   ctx.drawImage(backgoundImage, x, y, _width, _height);
   ctx.restore();
 };
-backgoundImage.src = "./assets/Test.jpg";
+backgoundImage.src = "./assets/hint/background0.png";
 
 canvas.addEventListener("click", function () {
   if (isplaying) return;
@@ -17,6 +17,26 @@ canvas.addEventListener("click", function () {
   isplaying = true;
   window.requestAnimationFrame(updateAnimat1);
 });
+
+function updateAnimteHint() {
+  if (isplaying) return;
+
+  currentTime = new Date().getTime();
+  if (currentTime - lastTime < FRAME_PERIOD_IDLE) {
+    requestAnimationFrame(updateAnimteHint);
+    return;
+  }
+
+  hintIndex++;
+  if (hintIndex >= hintIndexMax) {
+    hintIndex = 0;
+  }
+
+  backgoundImage.src = getIdelIndex(hintIndex);
+
+  lastTime = currentTime;
+  window.requestAnimationFrame(updateAnimteHint);
+}
 
 function updateAnimat1() {
   currentTime = new Date().getTime();
@@ -40,7 +60,7 @@ function updateAnimat1() {
 
 function updateAnimat2() {
   currentTime = new Date().getTime();
-  if (currentTime - lastTime < FRAME_PERIOD) {
+  if (currentTime - lastTime < FRAME_PERIOD2) {
     requestAnimationFrame(updateAnimat2);
     return;
   }
@@ -55,7 +75,7 @@ function updateAnimat2() {
 
   ctx.beginPath();
   ctx.rect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(255,255,255,0.3)";
+  ctx.fillStyle = "rgba(0,0,0,0.3)";
   ctx.fill();
 
   lastTime = currentTime;
@@ -68,6 +88,24 @@ function drawRandomImage() {
   txt = document.createTextNode(_g.name);
   span.appendChild(txt);
 
+  // let backgroundImage2 = new Image();
+  // backgroundImage2.onload = function () {
+  //   ctx.drawImage(
+  //     backgroundImage2,
+  //     (screenWidth -
+  //       (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH) /
+  //       2,
+  //     0,
+  //     (screenHeight * displayBackgroundRatioW) / displayBackgroundRatioH,
+  //     screenHeight
+  //   );
+  // };
+  // backgroundImage2.src = "./assets/background2.png";
+
+  ctx.beginPath();
+  ctx.rect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgba(255,255,255,1)";
+  ctx.fill();
   let itemImage = new Image();
   itemImage.onload = function () {
     ctx.drawImage(
@@ -80,3 +118,5 @@ function drawRandomImage() {
   };
   itemImage.src = _g.src;
 }
+
+requestAnimationFrame(updateAnimteHint);

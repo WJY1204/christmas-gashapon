@@ -15,14 +15,9 @@
     <canvas id="myCanvas" class="myCanvas">
       Your browser does not support the HTML5 canvas tag.
     </canvas>
-    <!-- <div class="wrapper" id="reloadBtn">
-      <button class="button" onclick="myFunction()" role="button">
-        Restart
-      </button>
-    </div> -->
     <div class="container" id="reloadBtn">
       <span class="myspan" id="myspan"></span>
-      <span class="myspan1">Merry Christmas</span>
+      <span class="myspan1">程式組卡片 <br />Merry Christmas</span>
       <button onclick="myFunction()" class="btn">
         <i class="fa fa-refresh" style="font-size: 80px; color: black"></i>
       </button>
@@ -85,6 +80,8 @@
     font-size: 45px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
   }
   .myspan1 {
     position: absolute;
@@ -94,9 +91,13 @@
     font-size: 50px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    text-align: center;
   }
   .reload {
     font-family: Lucida Sans Unicode;
     font-size: 16px;
+  }
+  .container .btn:active {
+    border-style: outset;
   }
 </style>

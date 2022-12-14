@@ -104,7 +104,7 @@ function drawRandomImage() {
     ctx.drawImage(
       nameImage,
       (screenWidth - _nameWidth) / 2,
-      (screenHeight - _gashponHeight) / 2 + _gashponHeight - 230,
+      (screenHeight - _gashponHeight) / 5 + _gashponHeight - 30,
       _nameWidth,
       _nameHeight
     );
@@ -116,7 +116,7 @@ function drawRandomImage() {
     ctx.drawImage(
       itemImage,
       (screenWidth - _gashponWidth) / 2,
-      (screenHeight - _gashponHeight) / 2 - 200,
+      (screenHeight - _gashponHeight) / 5,
       _gashponWidth,
       _gashponHeight
     );

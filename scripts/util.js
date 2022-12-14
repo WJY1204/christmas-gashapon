@@ -16,7 +16,7 @@ const displayBackgroundRatioH = 1880;
 
 const nameRatioW = 984;
 const nameRatioH = 450;
-const _nameWidth = screenWidth * 1.4;
+const _nameWidth = screenWidth * 1.2;
 const _nameHeight = (_nameWidth * nameRatioH) / nameRatioW;
 
 const _gashponWidth = screenWidth / 1.1;

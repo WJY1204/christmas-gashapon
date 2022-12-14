@@ -35,25 +35,25 @@ const FRAME_PERIOD = 27;
 const FRAME_PERIOD2 = 60;
 
 const gachapons = [
-  { src: "./assets/images/gashpon0.webp", name: "./assets/name/name4.png" },
-  { src: "./assets/images/gashpon1.webp", name: "./assets/name/name2.png" },
-  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.png" },
-  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.png" },
-  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.png" },
-  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.png" },
-  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.png" },
-  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.png" },
-  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.png" },
-  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.png" },
-  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.png" },
-  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.png" },
-  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.png" },
-  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.png" },
-  { src: "./assets/images/gashpon5.webp", name: "./assets/name/name5.png" },
-  { src: "./assets/images/gashpon6.webp", name: "./assets/name/name3.png" },
-  { src: "./assets/images/gashpon7.webp", name: "./assets/name/name0.png" },
-  { src: "./assets/images/gashpon8.webp", name: "./assets/name/name7.png" },
-  { src: "./assets/images/gashpon9.webp", name: "./assets/name/name1.png" },
+  { src: "./assets/images/gashpon0.webp", name: "./assets/name/name4.webp" },
+  { src: "./assets/images/gashpon1.webp", name: "./assets/name/name2.webp" },
+  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.webp" },
+  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.webp" },
+  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.webp" },
+  { src: "./assets/images/gashpon2.webp", name: "./assets/name/name6.webp" },
+  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.webp" },
+  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.webp" },
+  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.webp" },
+  { src: "./assets/images/gashpon3.webp", name: "./assets/name/name9.webp" },
+  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.webp" },
+  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.webp" },
+  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.webp" },
+  { src: "./assets/images/gashpon4.webp", name: "./assets/name/name8.webp" },
+  { src: "./assets/images/gashpon5.webp", name: "./assets/name/name5.webp" },
+  { src: "./assets/images/gashpon6.webp", name: "./assets/name/name3.webp" },
+  { src: "./assets/images/gashpon7.webp", name: "./assets/name/name0.webp" },
+  { src: "./assets/images/gashpon8.webp", name: "./assets/name/name7.webp" },
+  { src: "./assets/images/gashpon9.webp", name: "./assets/name/name1.webp" },
 ];
 let hintIndex = 0;
 const hintIndexMax = 3;
@@ -63,13 +63,13 @@ let frameIndex2 = 0;
 const frameIndexMax2 = 15;
 
 const idelPath = "./assets/hint/background";
-const idelType = ".png";
+const idelType = ".webp";
 function getIdelIndex(index) {
   return idelPath + index + idelType;
 }
 
 const imagePath = "./assets/draw/background";
-const imageType = ".png";
+const imageType = ".webp";
 function getFrameIndex(index) {
   return imagePath + index + imageType;
 }

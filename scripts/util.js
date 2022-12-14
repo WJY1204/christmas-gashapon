@@ -19,8 +19,8 @@ const nameRatioH = 450;
 const _nameWidth = screenWidth * 1.2;
 const _nameHeight = (_nameWidth * nameRatioH) / nameRatioW;
 
-const _gashponWidth = screenWidth / 1.1;
-const _gashponHeight = screenWidth / 1.1;
+const _gashponWidth = screenWidth * 0.9;
+const _gashponHeight = screenWidth * 0.9;
 
 // Position
 let x = (screenWidth - _width) / 2;

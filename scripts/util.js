@@ -4,8 +4,8 @@ let isplaying = false;
 // Canvas ratio
 const ratioW = 985;
 const ratioH = 1880;
-const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
+const screenWidth = window.visualViewport.width;
+const screenHeight = window.visualViewport.height;
 const _height = screenHeight;
 const _width = (_height * ratioW) / ratioH;
 // const _width = screenWidth;

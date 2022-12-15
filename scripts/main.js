@@ -1,5 +1,25 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
+
+(function () {
+  // triggers when the address bar hides
+  window.addEventListener("resize", resizeCanvas, false);
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    drawOnCanvas();
+  }
+
+  // call it for the starting windows size
+  resizeCanvas();
+
+  function drawOnCanvas() {
+    // here you can re-draw something on your canvas whenever the size changes
+  }
+});
+
 const backgoundImage = new Image();
 backgoundImage.onload = function () {
   canvas.width = window.innerWidth;

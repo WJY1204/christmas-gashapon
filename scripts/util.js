@@ -24,7 +24,7 @@ const _gashponHeight = screenWidth * 0.95;
 
 // Position
 let x = (screenWidth - _width) / 2;
-let y = -5;
+let y = 0;
 
 // Timers.
 let lastTime = new Date().getTime();

@@ -26,10 +26,11 @@ backgoundImage.onload = function () {
   canvas.height = window.innerHeight;
   ctx.save();
   ctx.globalAlpha = 1;
+  // ctx.drawImage(backgoundImage, -985 / 5, -1880 / 5, 985, 1880);
   ctx.drawImage(backgoundImage, x, y, _width, _height);
   ctx.restore();
 };
-backgoundImage.src = "./assets/draw/background0.webp";
+backgoundImage.src = "./assets/draw/background0.png";
 //
 // canvas.addEventListener("click", function () {
 //   if (isplaying) return;

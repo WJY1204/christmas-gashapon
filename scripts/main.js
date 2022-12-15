@@ -10,7 +10,7 @@ backgoundImage.onload = function () {
   ctx.restore();
 };
 backgoundImage.src = "./assets/hint/background0.webp";
-
+//
 // canvas.addEventListener("click", function () {
 //   if (isplaying) return;
 

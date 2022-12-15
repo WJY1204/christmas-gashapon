@@ -14,7 +14,7 @@ let gashaponMachine = {
   x: (screenWidth - _width) / 2,
   y: (screenHeight - _height) / 2,
   width: 495,
-  height: 948,
+  height: 947,
   currentframe: 0,
   totalIdleFrame: 3,
   totalDrawFrame: 24,

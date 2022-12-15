@@ -28,14 +28,14 @@ canvas.addEventListener("click", function () {
 
   gashaponMachine.img.src = "./assets/draw.png";
   clearInterval(idleTimer);
-  drawTimer = setInterval(animateDraw, 40);
+  drawTimer = setInterval(animateDraw, 50);
 });
 
 let idleTimer = null;
 let drawTimer = null;
 
 gashaponMachine.img = new Image();
-gashaponMachine.img.src = "./assets/hint.webp";
+gashaponMachine.img.src = "./assets/hint.png";
 gashaponMachine.img.onload = function () {};
 idleTimer = setInterval(animateIdle, 120);
 
@@ -82,5 +82,6 @@ function animateDraw() {
 
   if (gashaponMachine.currentframe >= gashaponMachine.totalDrawFrame) {
     gashaponMachine.currentframe = 0;
+    clearInterval(drawTimer);
   }
 }

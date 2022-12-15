@@ -1,5 +1,7 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 (function () {
   // triggers when the address bar hides
@@ -20,128 +22,65 @@ let ctx = canvas.getContext("2d");
   }
 });
 
-const backgoundImage = new Image();
-backgoundImage.onload = function () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  ctx.save();
-  ctx.globalAlpha = 1;
-  // ctx.drawImage(backgoundImage, -985 / 5, -1880 / 5, 985, 1880);
-  ctx.drawImage(backgoundImage, x, y, _width, _height);
-  ctx.restore();
-};
-backgoundImage.src = "./assets/draw/background0.png";
-//
-// canvas.addEventListener("click", function () {
-//   if (isplaying) return;
+canvas.addEventListener("click", function () {
+  if (isplaying) return;
+  isplaying = true;
 
-//   isplaying = true;
-//   window.requestAnimationFrame(updateAnimat1);
-// });
+  gashaponMachine.img.src = "./assets/draw.png";
+  clearInterval(idleTimer);
+  drawTimer = setInterval(animateDraw, 40);
+});
 
-// function updateAnimteHint() {
-//   if (isplaying) return;
+let idleTimer = null;
+let drawTimer = null;
 
-//   currentTime = new Date().getTime();
-//   if (currentTime - lastTime < FRAME_PERIOD_IDLE) {
-//     requestAnimationFrame(updateAnimteHint);
-//     return;
-//   }
+gashaponMachine.img = new Image();
+gashaponMachine.img.src = "./assets/hint.webp";
+gashaponMachine.img.onload = function () {};
+idleTimer = setInterval(animateIdle, 120);
 
-//   hintIndex++;
-//   if (hintIndex >= hintIndexMax) {
-//     hintIndex = 0;
-//   }
+function animateIdle() {
+  gashaponMachine.currentframe++;
 
-//   backgoundImage.src = getIdelIndex(hintIndex);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    gashaponMachine.img,
+    (gashaponMachine.currentframe % 3) * gashaponMachine.width,
+    0,
+    gashaponMachine.width,
+    gashaponMachine.height,
+    (screenWidth - _width) / 2,
+    0,
+    _width,
+    _height
+  );
 
-//   lastTime = currentTime;
-//   window.requestAnimationFrame(updateAnimteHint);
-// }
+  if (gashaponMachine.currentframe >= gashaponMachine.totalIdleFrame) {
+    gashaponMachine.currentframe = 0;
+  }
+}
 
-// function updateAnimat1() {
-//   currentTime = new Date().getTime();
-//   if (currentTime - lastTime < FRAME_PERIOD) {
-//     requestAnimationFrame(updateAnimat1);
-//     return;
-//   }
+function animateDraw() {
+  gashaponMachine.currentframe++;
 
-//   frameIndex++;
-//   if (frameIndex >= frameIndexMax) {
-//     frameIndex = frameIndexMax;
-//     updateAnimat2();
-//     return;
-//   }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    gashaponMachine.img,
+    (gashaponMachine.currentframe % 6) * gashaponMachine.width,
+    Math.floor(gashaponMachine.currentframe / 6) * gashaponMachine.height,
+    gashaponMachine.width,
+    gashaponMachine.height,
+    (screenWidth - _width) / 2,
+    0,
+    _width,
+    _height
+  );
+  console.log(
+    gashaponMachine.currentframe % 6,
+    Math.floor(gashaponMachine.currentframe / 6)
+  );
 
-//   backgoundImage.src = getFrameIndex(frameIndex);
-
-//   lastTime = currentTime;
-//   window.requestAnimationFrame(updateAnimat1);
-// }
-
-// function updateAnimat2() {
-//   currentTime = new Date().getTime();
-//   if (currentTime - lastTime < FRAME_PERIOD2) {
-//     window.requestAnimationFrame(updateAnimat2);
-//     return;
-//   }
-
-//   if (frameIndex2 >= frameIndexMax2) {
-//     let btn = document.getElementById("reloadBtn");
-//     btn.style.display = "block";
-//     drawRandomImage();
-//     return;
-//   }
-//   frameIndex2++;
-
-//   ctx.beginPath();
-//   ctx.rect(0, 0, canvas.width, canvas.height);
-//   ctx.fillStyle = "rgba(0,0,0,0.3)";
-//   ctx.fill();
-
-//   lastTime = currentTime;
-//   window.requestAnimationFrame(updateAnimat2);
-// }
-
-// function drawRandomImage() {
-//   let _g = getRndGachapon();
-//   // span = document.getElementById("myspan");
-//   // txt = document.createTextNode(_g.name);
-//   // span.appendChild(txt);
-//   let backgroundImage2 = new Image();
-//   backgroundImage2.onload = function () {
-//     ctx.drawImage(backgroundImage2, x, y, _width, _height);
-//   };
-//   backgroundImage2.src = "./assets/background2.webp";
-
-//   ctx.beginPath();
-//   ctx.rect(0, 0, canvas.width, canvas.height);
-//   ctx.fillStyle = "rgba(0,0,0,1)";
-//   ctx.fill();
-
-//   let nameImage = new Image();
-//   nameImage.onload = function () {
-//     ctx.drawImage(
-//       nameImage,
-//       (screenWidth - _nameWidth) / 2,
-//       (screenHeight - _gashponHeight) / 5 + _gashponHeight - 30,
-//       _nameWidth,
-//       _nameHeight
-//     );
-//   };
-//   nameImage.src = _g.name;
-
-//   let itemImage = new Image();
-//   itemImage.onload = function () {
-//     ctx.drawImage(
-//       itemImage,
-//       (screenWidth - _gashponWidth) / 2,
-//       (screenHeight - _gashponHeight) / 5,
-//       _gashponWidth,
-//       _gashponHeight
-//     );
-//   };
-//   itemImage.src = _g.src;
-// }
-
-// requestAnimationFrame(updateAnimteHint);
+  if (gashaponMachine.currentframe >= gashaponMachine.totalDrawFrame) {
+    gashaponMachine.currentframe = 0;
+  }
+}

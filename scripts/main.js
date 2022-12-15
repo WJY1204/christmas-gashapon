@@ -22,8 +22,10 @@ canvas.height = window.innerHeight;
   }
 });
 
+let _g = getRndGachapon();
+
 canvas.addEventListener("click", function () {
-  if (isplaying) return;
+  if (isplaying || ableToPlay == false) return;
   isplaying = true;
 
   gashaponMachine.img.src = "./assets/draw.png";
@@ -38,7 +40,6 @@ let fadeTimer = null;
 gashaponMachine.img = new Image();
 gashaponMachine.img.src = "./assets/hint.png";
 gashaponMachine.img.onload = function () {};
-idleTimer = setInterval(animateIdle, 120);
 
 const nameImage = new Image();
 nameImage.onload = function () {};
@@ -49,8 +50,30 @@ backgoundImage.onload = function () {};
 backgoundImage.src = "./assets/background2.webp";
 
 const itemImage = new Image();
-itemImage.onload = function () {};
 itemImage.src = _g.src;
+
+let loader = (img) =>
+  new Promise((resolve) => {
+    // resolve the arguments as an Array
+    img.onload = (e) => resolve();
+    // force resetting the src, otherwise onload may already have fired
+    img.src = img.src;
+  });
+
+async function loadImages() {
+  const a = await loader(nameImage);
+  const b = await loader(backgoundImage);
+  const c = await loader(itemImage);
+  // you must return something if you it to be passed in the then()
+  return [a, b, c];
+}
+
+loadImages()
+  .then(() => {
+    ableToPlay = true;
+    idleTimer = setInterval(animateIdle, 120);
+  })
+  .catch(console.error);
 
 function animateIdle() {
   gashaponMachine.currentframe++;
@@ -97,8 +120,6 @@ function animateDraw() {
 }
 
 function fading() {
-  let _g = getRndGachapon();
-
   ctx.save();
   ctx.globalAlpha = 1;
   ctx.drawImage(backgoundImage, (screenWidth - _width) / 2, 0, _width, _height);

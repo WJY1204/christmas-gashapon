@@ -40,6 +40,18 @@ gashaponMachine.img.src = "./assets/hint.png";
 gashaponMachine.img.onload = function () {};
 idleTimer = setInterval(animateIdle, 120);
 
+const nameImage = new Image();
+nameImage.onload = function () {};
+nameImage.src = _g.name;
+
+const backgoundImage = new Image();
+backgoundImage.onload = function () {};
+backgoundImage.src = "./assets/background2.webp";
+
+const itemImage = new Image();
+itemImage.onload = function () {};
+itemImage.src = _g.src;
+
 function animateIdle() {
   gashaponMachine.currentframe++;
 
@@ -87,44 +99,26 @@ function animateDraw() {
 function fading() {
   let _g = getRndGachapon();
 
-  const backgoundImage = new Image();
-  backgoundImage.onload = function () {
-    ctx.save();
-    ctx.globalAlpha = 1;
-    ctx.drawImage(
-      backgoundImage,
-      (screenWidth - _width) / 2,
-      0,
-      _width,
-      _height
-    );
-    ctx.restore();
-  };
-  backgoundImage.src = "./assets/background2.webp";
+  ctx.save();
+  ctx.globalAlpha = 1;
+  ctx.drawImage(backgoundImage, (screenWidth - _width) / 2, 0, _width, _height);
+  ctx.restore();
 
-  const itemImage = new Image();
-  itemImage.onload = function () {
-    ctx.drawImage(
-      itemImage,
-      (screenWidth - _gashponWidth) / 2,
-      (screenHeight - _gashponHeight) / 5,
-      _gashponWidth,
-      _gashponHeight
-    );
-  };
-  itemImage.src = _g.src;
+  ctx.drawImage(
+    itemImage,
+    (screenWidth - _gashponWidth) / 2,
+    (screenHeight - _gashponHeight) / 5,
+    _gashponWidth,
+    _gashponHeight
+  );
 
-  const nameImage = new Image();
-  nameImage.onload = function () {
-    ctx.drawImage(
-      nameImage,
-      (screenWidth - _nameWidth) / 2,
-      (screenHeight - _gashponHeight) / 5 + _gashponHeight - 30,
-      _nameWidth,
-      _nameHeight
-    );
-  };
-  nameImage.src = _g.name;
+  ctx.drawImage(
+    nameImage,
+    (screenWidth - _nameWidth) / 2,
+    (screenHeight - _gashponHeight) / 5 + _gashponHeight - 30,
+    _nameWidth,
+    _nameHeight
+  );
 
   let btn = document.getElementById("reloadBtn");
   btn.style.display = "block";

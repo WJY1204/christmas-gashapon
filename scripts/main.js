@@ -6,8 +6,8 @@ let ctx = canvas.getContext("2d");
   window.addEventListener("resize", resizeCanvas, false);
 
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    ctx.canvas.width = screenWidth;
+    ctx.canvas.height = screenHeight;
 
     drawOnCanvas();
   }
@@ -29,7 +29,7 @@ backgoundImage.onload = function () {
   ctx.drawImage(backgoundImage, x, y, _width, _height);
   ctx.restore();
 };
-backgoundImage.src = "./assets/hint/background0.webp";
+backgoundImage.src = "./assets/draw/background0.webp";
 //
 // canvas.addEventListener("click", function () {
 //   if (isplaying) return;

@@ -64,6 +64,7 @@ async function loadImages() {
   const a = await loader(nameImage);
   const b = await loader(backgoundImage);
   const c = await loader(itemImage);
+  const d = await loader(gashaponMachine.img);
   // you must return something if you it to be passed in the then()
   return [a, b, c];
 }

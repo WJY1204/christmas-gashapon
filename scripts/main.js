@@ -40,13 +40,13 @@ const drawImage = new Image();
 drawImage.onload = function () {
   ctx.imageSmoothingEnabled = false;
 };
-drawImage.src = "./assets/draw.png";
+drawImage.src = "./assets/draw.webp";
 
 const idleImage = new Image();
 idleImage.onload = function () {
   ctx.imageSmoothingEnabled = false;
 };
-idleImage.src = "./assets/hint.png";
+idleImage.src = "./assets/hint.webp";
 
 const nameImage = new Image();
 nameImage.onload = function () {

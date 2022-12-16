@@ -21,7 +21,7 @@ const _nameHeight = (_nameWidth * nameRatioH) / nameRatioW;
 let gashaponMachine = {
   x: (screenWidth - _width) / 2,
   y: (screenHeight - _height) / 2,
-  width: 1175,
+  width: 1175.3333333333,
   height: 2250,
   currentframe: 0,
   totalIdleFrame: 3,

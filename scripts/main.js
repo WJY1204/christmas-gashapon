@@ -28,18 +28,21 @@ canvas.addEventListener("click", function () {
   if (isplaying || ableToPlay == false) return;
   isplaying = true;
 
-  gashaponMachine.img.src = "./assets/draw.png";
   clearInterval(idleTimer);
-  drawTimer = setInterval(animateDraw, 50);
+  drawTimer = setInterval(animateDraw, 65);
 });
 
 let idleTimer = null;
 let drawTimer = null;
 let fadeTimer = null;
 
-gashaponMachine.img = new Image();
-gashaponMachine.img.src = "./assets/hint.png";
-gashaponMachine.img.onload = function () {};
+const drawImage = new Image();
+drawImage.onload = function () {};
+drawImage.src = "./assets/draw.png";
+
+const idleImage = new Image();
+idleImage.onload = function () {};
+idleImage.src = "./assets/hint.png";
 
 const nameImage = new Image();
 nameImage.onload = function () {};
@@ -64,15 +67,21 @@ async function loadImages() {
   const a = await loader(nameImage);
   const b = await loader(backgoundImage);
   const c = await loader(itemImage);
-  const d = await loader(gashaponMachine.img);
+  const d = await loader(idleImage);
+  const e = await loader(drawImage);
   // you must return something if you it to be passed in the then()
-  return [a, b, c];
+  // console.log("I'm ready");
+  return [a, b, c, d, e];
 }
 
 loadImages()
   .then(() => {
-    ableToPlay = true;
-    idleTimer = setInterval(animateIdle, 120);
+    setTimeout(function () {
+      document.getElementById("myCanvas").style.display = "block";
+      document.getElementById("loader-center").style.display = "none";
+      ableToPlay = true;
+      idleTimer = setInterval(animateIdle, 150);
+    }, 1000);
   })
   .catch(console.error);
 
@@ -81,7 +90,7 @@ function animateIdle() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(
-    gashaponMachine.img,
+    idleImage,
     (gashaponMachine.currentframe % 3) * gashaponMachine.width,
     0,
     gashaponMachine.width,
@@ -102,7 +111,7 @@ function animateDraw() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(
-    gashaponMachine.img,
+    drawImage,
     (gashaponMachine.currentframe % 6) * gashaponMachine.width,
     Math.floor(gashaponMachine.currentframe / 6) * gashaponMachine.height,
     gashaponMachine.width,

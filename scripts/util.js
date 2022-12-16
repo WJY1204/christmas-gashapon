@@ -1,5 +1,6 @@
 // Control animation playing
 let isplaying = false;
+let ableToPlay = false;
 
 // Canvas ratio
 const ratioW = 985;
@@ -18,11 +19,10 @@ const _nameWidth = screenWidth * 1.2;
 const _nameHeight = (_nameWidth * nameRatioH) / nameRatioW;
 
 let gashaponMachine = {
-  img: null,
   x: (screenWidth - _width) / 2,
   y: (screenHeight - _height) / 2,
-  width: 495,
-  height: 947,
+  width: 1175,
+  height: 2250,
   currentframe: 0,
   totalIdleFrame: 3,
   totalDrawFrame: 24,

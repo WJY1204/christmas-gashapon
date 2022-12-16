@@ -6,23 +6,25 @@
     <title>Merry Christmas</title>
   </head>
   <body>
-    <canvas id="myCanvas" class="myCanvas">
-      Your browser does not support the HTML5 canvas tag.
-    </canvas>
-    <div class="loader-center" id="loader-center">
-      <div class="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div>
+      <canvas id="myCanvas" class="myCanvas">
+        Your browser does not support the HTML5 canvas tag.
+      </canvas>
+      <div class="loader-center" id="loader-center">
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <span style="color: white">Loading.....</span>
       </div>
-      <span style="color: white">Loading.....</span>
-    </div>
 
-    <div class="container" id="reloadBtn">
-      <button onclick="myFunction()" class="btn">
-        <i class="fa fa-refresh" style="font-size: 36px"></i>
-      </button>
+      <div class="container" id="reloadBtn">
+        <button onclick="myFunction()" class="btn">
+          <i class="fa fa-refresh" style="font-size: 36px"></i>
+        </button>
+      </div>
     </div>
     <script>
       function myFunction() {
@@ -32,6 +34,7 @@
     <script src="scripts/util.js"></script>
     <script src="scripts/main.js"></script>
     <link rel="stylesheet" href="./styles/loader.css" />
+    <link rel="stylesheet" href="./styles/gashaponCanvas.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -52,41 +55,12 @@
     margin: 0;
     background-color: black;
   }
-  .myCanvas {
+  div {
     display: none;
   }
-  #canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 10;
-  }
-  .container {
-    display: none;
-    width: 100%;
-  }
-  .container .btn {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    /* bottom: 0; */
-    /* right: 0; */
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: transparent;
-    padding: 16px 30px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-  }
-  .reload {
-    font-family: Lucida Sans Unicode;
-    font-size: 16px;
-  }
-  .container .btn:active {
-    border-style: outset;
+  @media only screen and (max-width: 768px) {
+    div {
+      display: block;
+    }
   }
 </style>

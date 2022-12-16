@@ -3,8 +3,8 @@ let isplaying = false;
 let ableToPlay = false;
 
 // Canvas ratio
-const ratioW = 985;
-const ratioH = 1880;
+const ratioW = 282;
+const ratioH = 540;
 const screenWidth = window.visualViewport.width;
 const screenHeight = window.visualViewport.height;
 const _height = screenHeight;
@@ -21,8 +21,8 @@ const _nameHeight = (_nameWidth * nameRatioH) / nameRatioW;
 let gashaponMachine = {
   x: (screenWidth - _width) / 2,
   y: (screenHeight - _height) / 2,
-  width: 1175.3333333333,
-  height: 2250,
+  width: 1175.3,
+  height: 2251,
   currentframe: 0,
   totalIdleFrame: 3,
   totalDrawFrame: 24,

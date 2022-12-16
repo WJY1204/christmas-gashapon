@@ -1,7 +1,7 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = screenWidth;
+canvas.height = screenHeight;
 
 // (function () {
 //   // triggers when the address bar hides
@@ -37,22 +37,33 @@ let drawTimer = null;
 let fadeTimer = null;
 
 const drawImage = new Image();
-drawImage.onload = function () {};
+drawImage.onload = function () {
+  ctx.imageSmoothingEnabled = false;
+};
 drawImage.src = "./assets/draw.png";
 
 const idleImage = new Image();
-idleImage.onload = function () {};
+idleImage.onload = function () {
+  ctx.imageSmoothingEnabled = false;
+};
 idleImage.src = "./assets/hint.png";
 
 const nameImage = new Image();
-nameImage.onload = function () {};
+nameImage.onload = function () {
+  ctx.imageSmoothingEnabled = false;
+};
 nameImage.src = _g.name;
 
 const backgoundImage = new Image();
-backgoundImage.onload = function () {};
+backgoundImage.onload = function () {
+  ctx.imageSmoothingEnabled = false;
+};
 backgoundImage.src = "./assets/background2.webp";
 
 const itemImage = new Image();
+itemImage.onload = function () {
+  ctx.imageSmoothingEnabled = false;
+};
 itemImage.src = _g.src;
 
 let loader = (img) =>

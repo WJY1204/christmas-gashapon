@@ -74,6 +74,23 @@ let loader = (img) =>
     img.src = img.src;
   });
 
+let lodeBK = () =>
+  new Promise((resolve) => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+      drawImage,
+      (gashaponMachine.currentframe % 6) * gashaponMachine.width,
+      Math.floor(gashaponMachine.currentframe / 6) * gashaponMachine.height,
+      gashaponMachine.width,
+      gashaponMachine.height,
+      (screenWidth - _width) / 2,
+      0,
+      _width,
+      _height
+    );
+    resolve();
+  });
+
 async function loadImages() {
   const a = await loader(nameImage);
   const b = await loader(backgoundImage);
@@ -82,6 +99,7 @@ async function loadImages() {
   const e = await loader(drawImage);
   // you must return something if you it to be passed in the then()
   // console.log("I'm ready");
+  await lodeBK();
   return [a, b, c, d, e];
 }
 

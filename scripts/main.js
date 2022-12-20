@@ -119,6 +119,17 @@ function animateIdle() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(
+    drawImage,
+    0,
+    0,
+    gashaponMachine.width,
+    gashaponMachine.height,
+    (screenWidth - _width) / 2,
+    0,
+    _width,
+    _height
+  );
+  ctx.drawImage(
     idleImage,
     (gashaponMachine.currentframe % 3) * gashaponMachine.width,
     0,

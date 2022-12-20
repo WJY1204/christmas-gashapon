@@ -3,24 +3,25 @@ let ctx = canvas.getContext("2d");
 canvas.width = screenWidth;
 canvas.height = screenHeight;
 
-// (function () {
-//   // triggers when the address bar hides
-//   window.addEventListener("resize", resizeCanvas, false);
+(function () {
+  // triggers when the address bar hides
+  window.addEventListener("resize", resizeCanvas, false);
 
-//   function resizeCanvas() {
-//     ctx.canvas.width = screenWidth;
-//     ctx.canvas.height = screenHeight;
+  function resizeCanvas() {
+    ctx.canvas.width = screenWidth;
+    ctx.canvas.height = screenHeight;
 
-//     drawOnCanvas();
-//   }
+    drawOnCanvas();
+  }
 
-//   // call it for the starting windows size
-//   resizeCanvas();
+  // call it for the starting windows size
+  resizeCanvas();
 
-//   function drawOnCanvas() {
-//     // here you can re-draw something on your canvas whenever the size changes
-//   }
-// });
+  function drawOnCanvas() {
+    // here you can re-draw something on your canvas whenever the size changes
+    animateIdle();
+  }
+});
 
 let _g = getRndGachapon();
 

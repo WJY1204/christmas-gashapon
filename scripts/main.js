@@ -10,6 +10,8 @@ canvas.height = screenHeight;
   function resizeCanvas() {
     ctx.canvas.width = screenWidth;
     ctx.canvas.height = screenHeight;
+    canvas.style.width = screenWidth + "px";
+    canvas.style.height = screenHeight + "px";
 
     drawOnCanvas();
   }

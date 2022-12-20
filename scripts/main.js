@@ -2,6 +2,8 @@ let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 canvas.width = screenWidth;
 canvas.height = screenHeight;
+canvas.style.width = screenWidth + "px";
+canvas.style.height = screenHeight + "px";
 
 (function () {
   // triggers when the address bar hides

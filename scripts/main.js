@@ -1,9 +1,13 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
-canvas.width = screenWidth;
-canvas.height = screenHeight;
+const dpi = window.devicePixelRatio;
+canvas.width = screenWidth * dpi;
+canvas.height = screenHeight * dpi;
 canvas.style.width = screenWidth + "px";
 canvas.style.height = screenHeight + "px";
+
+console.log(dpi);
+ctx.scale(dpi, dpi);
 
 (function () {
   // triggers when the address bar hides
